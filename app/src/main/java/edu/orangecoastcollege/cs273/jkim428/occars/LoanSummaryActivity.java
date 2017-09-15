@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+import android.view.View;
 
 public class LoanSummaryActivity extends AppCompatActivity {
 
@@ -29,8 +30,13 @@ public class LoanSummaryActivity extends AppCompatActivity {
         String report = intentFromPurchase.getStringExtra("loanReport");
 
         // Fill your TextView with data from the report
-        // findviewbyid (R.id....) - setText
         mReportTextView = (TextView) findViewById(R.id.reportTextView);
         mReportTextView.setText(report);
+    }
+
+    protected void returnToDataEntry(View v)
+    {
+        Intent returnToPurchaseActivity = new Intent(this, PurchaseActivity.class);
+        startActivity(returnToPurchaseActivity);
     }
 }
